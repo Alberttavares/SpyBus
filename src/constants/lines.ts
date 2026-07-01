@@ -1,0 +1,28 @@
+import { BusLine } from "@/types";
+
+export const BUS_LINES: BusLine[] = [
+  { id: "010", number: "010", name: "Santo Antônio x Cohab", fullName: "010 — Santo Antônio x Cohab" },
+  { id: "012", number: "012", name: "Aroeira x Roberto Silvares", fullName: "012 — Aroeira x Roberto Silvares" },
+  { id: "013-aroeira-morada", number: "013", name: "Aroeira x Morada do Ribeirão", fullName: "013 — Aroeira x Morada do Ribeirão" },
+  { id: "013-aroeira-cohab", number: "013", name: "Aroeira x Cohab", fullName: "013 — Aroeira x Cohab" },
+  { id: "021", number: "021", name: "Santo Antônio x Aviação", fullName: "021 — Santo Antônio x Aviação" },
+  { id: "021-jacui", number: "021", name: "Santo Antônio x Aviação via Jacuí", fullName: "021 — Santo Antônio x Aviação via Jacuí" },
+  { id: "023", number: "023", name: "Expresso Santo Antônio x Guriri", fullName: "023 — Expresso Santo Antônio x Guriri" },
+  { id: "030", number: "030", name: "Morada do Lago x Liberdade", fullName: "030 — Morada do Lago x Liberdade" },
+  { id: "040-porto", number: "040", name: "Porto x Cohab", fullName: "040 — Porto x Cohab" },
+  { id: "040-tereza", number: "040", name: "Santa Tereza x Cohab", fullName: "040 — Santa Tereza x Cohab" },
+  { id: "041", number: "041", name: "Santa Tereza x Pedra D'Água", fullName: "041 — Santa Tereza x Pedra D'Água" },
+  { id: "050-era", number: "050", name: "Nova Era x Alvorada", fullName: "050 — Nova Era x Alvorada" },
+  { id: "050-seac", number: "050", name: "Seac x Alvorada", fullName: "050 — Seac x Alvorada" },
+  { id: "051", number: "051", name: "Centro x Bosque da Praia", fullName: "051 — Centro x Bosque da Praia" },
+  { id: "051-seac", number: "051", name: "Seac x Bosque via Praiano", fullName: "051 — Seac x Bosque via Praiano" },
+  { id: "060", number: "060", name: "Litorâneo x Aviação", fullName: "060 — Litorâneo x Aviação" },
+  { id: "062", number: "062", name: "Centro x IFES/UFES Expresso", fullName: "062 — Centro x IFES/UFES Expresso" },
+  { id: "064-villages-pedra", number: "064", name: "Villages x Pedra D'Água", fullName: "064 — Villages x Pedra D'Água" },
+  { id: "064-villages-roberto", number: "064", name: "Villages x Roberto Silvares", fullName: "064 — Villages x Roberto Silvares" },
+  { id: "068", number: "068", name: "Guriri x IFES/UFES", fullName: "068 — Guriri x IFES/UFES" },
+  { id: "070", number: "070", name: "Centro x Guriri", fullName: "070 — Centro x Guriri" },
+  { id: "081", number: "081", name: "São Mateus x Paulista", fullName: "081 — São Mateus x Paulista" },
+  { id: "103", number: "103", name: "Reforço Nova Era x Escola Master", fullName: "103 — Reforço Nova Era x Escola Master" },
+  { id: "105", number: "105", name: "Reforço Aroeira x Escola Master", fullName: "105 — Reforço Aroeira x Escola Master" },
+];

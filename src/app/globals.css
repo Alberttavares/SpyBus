@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+  --color-brand-800: #1e3a8a;
+  --color-brand-900: #172554;
+
+  --color-cyber-50: #ecfeff;
+  --color-cyber-100: #cffafe;
+  --color-cyber-200: #a5f3fc;
+  --color-cyber-300: #67e8f9;
+  --color-cyber-400: #22d3ee;
+  --color-cyber-500: #06b6d4;
+  --color-cyber-600: #0891b2;
+  --color-cyber-700: #0e7490;
+
+  --color-success-50: #f0fdf4;
+  --color-success-500: #16a34a;
+  --color-success-600: #15803d;
+
+  --color-warning-500: #eab308;
+  --color-warning-600: #ca8a04;
+
+  --color-danger-500: #dc2626;
+  --color-danger-600: #b91c1c;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-gray-200);
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+
+  .badge-blue {
+    background-color: var(--color-brand-100);
+    color: var(--color-brand-700);
+  }
+
+  .badge-green {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  .badge-yellow {
+    background-color: #fef9c3;
+    color: #854d0e;
+  }
+
+  .badge-red {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+
+  .badge-gray {
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-600);
+  }
+
+  .badge-cyan {
+    background-color: #cffafe;
+    color: #155e75;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-200) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-200);
+    border-radius: 9999px;
+  }
+}
+
+@utility container-main {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(0.75rem, 4vw, 1rem);
+  padding-right: clamp(0.75rem, 4vw, 1rem);
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--color-brand-500), var(--color-cyber-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+@media (width >= 40rem) {
+  .container-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .container-main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

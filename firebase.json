@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "spybus-c9a04-5352b",
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
