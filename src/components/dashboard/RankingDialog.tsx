@@ -36,9 +36,17 @@ interface RankUser {
   score: number;
 }
 
-export function RankingDialog() {
+interface RankingDialogProps {
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  trigger?: React.ReactNode;
+}
+
+export function RankingDialog({ open: controlledOpen, onOpenChange, trigger }: RankingDialogProps) {
   const { userData } = useAuth();
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = controlledOpen ?? internalOpen;
+  const setOpen = onOpenChange ?? setInternalOpen;
   const [users, setUsers] = useState<RankUser[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -55,13 +63,17 @@ export function RankingDialog() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-100 transition-all duration-200"
-      >
-        <Trophy className="h-4 w-4 text-warning-500" />
-        Ranking
-      </button>
+      {trigger ? (
+        <div onClick={() => setOpen(true)}>{trigger}</div>
+      ) : (
+        <button
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-100 transition-all duration-200"
+        >
+          <Trophy className="h-4 w-4 text-warning-500" />
+          Ranking
+        </button>
+      )}
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-md">

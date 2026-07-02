@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bus, LogOut, User, Award, Menu, X } from "lucide-react";
+import { Bus, LogOut, User, Award, Menu, X, Trophy } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { logout } from "@/services/auth";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ export function Header() {
   const { user, userData } = useAuth();
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [rankingOpen, setRankingOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -65,7 +66,7 @@ export function Header() {
             </motion.div>
           )}
 
-          <RankingDialog />
+          <RankingDialog open={rankingOpen} onOpenChange={setRankingOpen} />
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -150,6 +151,17 @@ export function Header() {
               >
                 <Bus className="mr-2 h-4 w-4" />
                 Dashboard
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  setRankingOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+              >
+                <Trophy className="mr-2 h-4 w-4 text-warning-500" />
+                Ranking
               </Button>
               <Button
                 variant="ghost"
