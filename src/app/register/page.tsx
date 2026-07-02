@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/components/ui/use-toast";
-import { registerWithEmail, loginWithGoogle } from "@/services/auth";
+import { registerWithEmail } from "@/services/auth";
 
 const registerSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -35,7 +35,6 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
 
   const {
     register,
@@ -75,27 +74,6 @@ export default function RegisterPage() {
       });
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    setGoogleLoading(true);
-    try {
-      await loginWithGoogle();
-      toast({
-        title: "Bem-vindo!",
-        description: "Conta criada com Google.",
-        variant: "success",
-      });
-      router.push("/");
-    } catch (error: any) {
-      toast({
-        title: "Erro no Google",
-        description: "Não foi possível criar conta com Google.",
-        variant: "error",
-      });
-    } finally {
-      setGoogleLoading(false);
     }
   };
 
@@ -264,15 +242,12 @@ export default function RegisterPage() {
             <Separator />
           </div>
 
-          <Button
-            variant="google"
-            onClick={handleGoogleLogin}
-            disabled={googleLoading}
-            className="w-full h-12 text-base font-medium"
-          >
-            {googleLoading ? (
-              <Loader2 className="h-5 w-5 animate-spin" />
-            ) : (
+          <div className="relative">
+            <Button
+              disabled
+              variant="google"
+              className="w-full h-12 text-base font-medium opacity-60 cursor-not-allowed"
+            >
               <span className="flex items-center gap-2">
                 <svg className="h-5 w-5" viewBox="0 0 24 24">
                   <path
@@ -294,8 +269,11 @@ export default function RegisterPage() {
                 </svg>
                 Criar com Google
               </span>
-            )}
-          </Button>
+            </Button>
+            <span className="absolute -top-2 -right-2 bg-warning-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+              EM BREVE!
+            </span>
+          </div>
 
           <p className="text-center text-sm text-gray-400 mt-6">
             Ao criar uma conta, você concorda com nossos Termos de Uso.
